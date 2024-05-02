@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_partner_form_inherit" model="ir.ui.view">
+        <field name="name">res.partner.form.inherit</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='mobile']" position="replace">
+                <label for="mobiles" class="oe_inline"/>
+                <field name="mobiles" widget="many2many_tags" string="Mobiles"/>
+            </xpath>
+            <xpath expr="//field[@name='email']" position="replace">
+                <label for="emails" class="oe_inline"/>
+                <field name="emails" widget="many2many_tags" string="emails"/>
+            </xpath>
+            <!-- <xpath expr="//sheet//group//field[@name='email']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            
+            <xpath expr="//sheet//group//field[@name='mobile']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//label[@for='mobile']" position="replace"/>
+            <xpath expr="//label[@for='email']" position="replace"/> -->
+        </field>
+    </record>
+</odoo>
