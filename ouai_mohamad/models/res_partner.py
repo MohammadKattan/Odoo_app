@@ -5,7 +5,7 @@ class ResPartner(models.Model):
 
     emails = fields.Many2many('res.partner.email', string="Emails")
     mobiles = fields.Many2many('res.partner.mobile', string="Mobiles")
-
+ 
 class ResPartnerEmail(models.Model):
     _name = 'res.partner.email'
 
