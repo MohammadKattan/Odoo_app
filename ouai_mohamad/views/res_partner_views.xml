@@ -5,23 +5,29 @@
         <field name="model">res.partner</field>
         <field name="inherit_id" ref="base.view_partner_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='mobile']" position="replace">
-                <label for="mobiles" class="oe_inline"/>
-                <field name="mobiles" widget="many2many_tags" string="Mobiles"/>
+            <!-- <xpath expr="//field[@name='mobile']" position="replace">
+                <field name="mobile" invisible="1"/>
+            </xpath> -->
+            <xpath expr="//label[@for='mobile']" position="replace">
             </xpath>
-            <xpath expr="//field[@name='email']" position="replace">
+            <xpath expr="//field[@name='mobile']/ancestor::div[1]" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//label[@for='email']" position="replace">
+            </xpath>
+            <xpath expr="//field[@name='email']/ancestor::div[1]" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='website']" position="before">
                 <label for="emails" class="oe_inline"/>
-                <field name="emails" widget="many2many_tags" string="emails"/>
+                <div class="o_row o_row_readonly">
+                    <field name="emails" widget="many2many_tags" class="oe_inline"/>
+                </div>
+                <label for="mobiles" class="oe_inline"/>
+                <div class="o_row o_row_readonly">
+                    <field name="mobiles" widget="many2many_tags" class="oe_inline"/>
+                </div>
             </xpath>
-            <!-- <xpath expr="//sheet//group//field[@name='email']" position="attributes">
-                <attribute name="invisible">1</attribute>
-            </xpath>
-            
-            <xpath expr="//sheet//group//field[@name='mobile']" position="attributes">
-                <attribute name="invisible">1</attribute>
-            </xpath>
-            <xpath expr="//label[@for='mobile']" position="replace"/>
-            <xpath expr="//label[@for='email']" position="replace"/> -->
         </field>
     </record>
 </odoo>

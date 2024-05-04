@@ -12,7 +12,7 @@
     'category': 'Tool',
     'version': '0.1',
     # any module necessary for this one to work correctly
-    'depends': ['base', ],
+    'depends': ['base', 'sms'],
     'installable' : True,
     'auto_install': False,
     'application' : True,
