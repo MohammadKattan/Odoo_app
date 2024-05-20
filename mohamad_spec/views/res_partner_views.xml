@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_partner_form_inherit" model="ir.ui.view">
+        <field name="name">res.partner.form.inherit</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//label[@for='mobile']" position="attributes">
+                <attribute name="invisible">is_company</attribute>
+            </xpath>
+            <xpath expr="//field[@name='mobile']/ancestor::div[1]" position="attributes">
+                <attribute name="invisible">is_company</attribute>
+            </xpath>
+            <xpath expr="//label[@for='email']" position="attributes">
+                <attribute name="invisible">is_company</attribute>
+            </xpath>
+            <xpath expr="//field[@name='email']/ancestor::div[1]" position="attributes">
+                <attribute name="invisible">is_company</attribute>
+            </xpath>
+            <xpath expr="//field[@name='website']" position="before">
+                <!-- <label for="emails" class="oe_inline"/> -->
+                    <field name="emails" widget="many2many_tags" options="{'color_field': 'color'}" class="oe_inline" invisible="not is_company"/>
+                <!-- <label for="mobiles" class="oe_inline"/> -->
+                
+                    <field name="mobiles" widget="many2many_tags" options="{'color_field': 'color'}" class="oe_inline" invisible="not is_company"/>
+                
+            </xpath>
+            <!-- Ajout du champ Region avec une couleur pour chaque valeur -->
+            <xpath expr="//field[@name='website']" position="after">
+                <field name="regions" widget="many2many_tags" options="{'color_field': 'color'}" class="oe_inline" invisible="not is_company"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

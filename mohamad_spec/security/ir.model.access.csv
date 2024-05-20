@@ -1,0 +1,4 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"access_res_partner_mobile","res.partner.mobile","model_res_partner_mobile","base.group_user",1,1,1,1
+"access_res_partner_email","res.partner.email","model_res_partner_email","base.group_user",1,1,1,1
+"access_res_partner_region","res.partner.region","model_res_partner_region","base.group_user",1,1,1,1
