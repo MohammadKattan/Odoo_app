@@ -5,6 +5,7 @@
         <field name="model">res.partner</field>
         <field name="inherit_id" ref="base.view_partner_form"/>
         <field name="arch" type="xml">
+            <!-- Ici rendre invisible les champs que pour les companys -->
             <xpath expr="//label[@for='mobile']" position="attributes">
                 <attribute name="invisible">is_company</attribute>
             </xpath>
